@@ -11,7 +11,25 @@ Let's just say that I just don't wanna look at the old code too much.
 
 There are a ton of issues stemming from inadequate planning and scope creep that made the project very annoying to work with.
 
-## Project Structure
+## Folder Structure
+All projects will live in `yescloud`, where it will be broken down into sub-sections:
+- `api`
+
+  `api` will contain YesCloud REST API that can be consumed by either a third-party implementation or by YesCloud web manager
+- `cli`
+  
+  `cli` will contain YesCloud command-line tools to enhance the features that cannot be provided by YesCloud itself
+- `core`
+
+  `core` will contain YesCloud library that will be shared by `api`, `cli` and `web`
+- `extras`
+  
+  `extras` will contain extra tools that will be used for situational cases
+- `web`
+
+  `web` contains the code to provide services to YesCloud web-based manager
+
+## Repository Structure
 `main` will be the place for the full working implementation of the entire platform when it's ready.
 
 `develop` branch contains the current snapshot of the code snippets and prototypes that will be used.
