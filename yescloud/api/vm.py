@@ -42,42 +42,46 @@ class ListVirtualMachineByStatus(Resource):
         return domain.list_domains(status_flag)
 
 
-@api.route('/<vm_id>/detail')
+@api.route('/<int:vm_id>/detail')
 class ViewVirtualMachineDetail(Resource):
 
     def get(self, vm_id):
-        pass
+        """Show VM details based on VM ID"""
+        return domain.get_domain_detail(vm_id)
 
 
-@api.route('/<vm_id>/start')
+@api.route('/<int:vm_id>/start')
 class StartVirtualMachine(Resource):
 
     def get(self, vm_id):
-        pass
+        """Start VM based on the VM ID"""
+        return domain.create_domain(vm_id)
 
 
-@api.route('/<vm_id>/shutdown')
+@api.route('/<int:vm_id>/shutdown')
 class ShutDownVirtualMachine(Resource):
 
     def get(self, vm_id):
-        pass
+        """Gracefully shut down a VM based on VM ID"""
+        return domain.shutdown_domain(vm_id)
 
 
-@api.route('/<vm_id>/destroy')
+@api.route('/<int:vm_id>/destroy')
 class DestroyVirtualMachine(Resource):
 
     def get(self, vm_id):
-        pass
+        """Hard power-down a VM based on VM ID"""
+        return domain.destroy_domain(vm_id)
 
-
-@api.route('/<vm_id>/destroy')
+@api.route('/<int:vm_id>/delete')
 class DestroyVirtualMachine(Resource):
 
     def get(self, vm_id):
-        pass
+        """Hard power-down a VM based on VM ID"""
+        return domain.destroy_domain(vm_id)
 
 
-@api.route('/<vm_id>/clone')
+@api.route('/<int:vm_id>/clone')
 class CloneVirtualMachine(Resource):
 
     def post(self, vm_id):

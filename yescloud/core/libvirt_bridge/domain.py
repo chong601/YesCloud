@@ -1,4 +1,5 @@
 import libvirt
+from .exception import handle_libvirt_exception
 
 URI = 'qemu:///system'
 conn_ro = libvirt.openReadOnly(URI)
@@ -9,6 +10,7 @@ def list_domains(flag: int):
     result = conn_ro.listAllDomains(flag)
     return result
 
+@handle_libvirt_exception
 def get_domain_detail(vm_id):
     """
     Get a domain information
@@ -18,6 +20,7 @@ def get_domain_detail(vm_id):
     domain = conn_ro.lookupByID(vm_id)
     return domain.info()
 
+@handle_libvirt_exception
 def create_domain(vm_id):
     """
     Start a domain
@@ -25,6 +28,7 @@ def create_domain(vm_id):
     domain = conn_rw.lookupByID(vm_id)
     return True if not domain.create() else False
 
+@handle_libvirt_exception
 def destroy_domain(vm_id):
     """
     Hard power-off a domain
@@ -33,6 +37,7 @@ def destroy_domain(vm_id):
     domain = conn_rw.lookupByID(vm_id)
     return True if not domain.destroy() else False
 
+@handle_libvirt_exception
 def shutdown_domain(vm_id):
     """
     Shut down a domain using graceful shutdown ala power-button press or hrough the OS
@@ -40,6 +45,7 @@ def shutdown_domain(vm_id):
     domain = conn_rw.lookupByID(vm_id)
     return True if not domain.shutdown() else False
 
+@handle_libvirt_exception
 def undefine_domain(vm_id):
     """
     Delete a domain
@@ -49,9 +55,9 @@ def undefine_domain(vm_id):
     it's up to the developer to decide how to remove them
     """
     domain = conn_rw.lookupByID(vm_id)
-    domain.unde
     return True if not domain.undefine() else False
 
+@handle_libvirt_exception
 def define_domain(domain_detail):
     """
     Create a new domain from the provided data
