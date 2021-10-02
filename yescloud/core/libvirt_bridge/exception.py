@@ -437,10 +437,11 @@ class YesCloudTranslateLibvirtErrorToUsableException(object):
 
 
 def handle_libvirt_exception(func):
-        def wrapper(*args, **kwargs):
-            try: 
-                return func(*args, *kwargs)
-            except libvirtError as e:
-                real_exception = YesCloudTranslateLibvirtErrorToUsableException(e)
-                raise real_exception
+    def wrapper(*args, **kwargs):
+        try: 
+            return func(*args, *kwargs)
+        except libvirtError as e:
+            real_exception = YesCloudTranslateLibvirtErrorToUsableException(e)
+            raise real_exception
+    return wrapper
 
