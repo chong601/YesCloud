@@ -44,7 +44,6 @@ class YesCloudTranslateLibvirtErrorToUsableException(object):
         return {
         # Start of virErrorDomain struct
         # enum virErrorDomain {
-            #"""{'type': '', 'description': ''},"""
             # VIR_FROM_NONE  =  0 (0x0)
             0: {'type': None, 'description': None},
             # VIR_FROM_XEN  =  1 (0x1)                  # Error at Xen hypervisor layer
@@ -202,7 +201,7 @@ class YesCloudTranslateLibvirtErrorToUsableException(object):
         # enum virErrorLevel {
         return {
             # VIR_ERR_NONE  =  0 (0x0)
-            0: {'type': '', 'description': ''},
+            0: {'level': '', 'type': '', 'description': ''},
             # VIR_ERR_WARNING  =  1 (0x1)   # A simple warning
             1: {'type': 'warning', 'description': 'A warning has been encountered.'},
             # VIR_ERR_ERROR  =  2 (0x2)     # An error
@@ -215,230 +214,230 @@ class YesCloudTranslateLibvirtErrorToUsableException(object):
         # enum virErrorNumber {
         return {
             # VIR_ERR_OK  =  0 (0x0)
-            0: {'type': '', 'description': ''},
+            0: {'level': '', 'type': '', 'description': ''},
             # VIR_ERR_INTERNAL_ERROR  =  1 (0x1)  # internal error
-            1: {'type': '', 'description': ''},
+            1: {'level': 'error', 'type': 'internal-error', 'description': 'Internal error'},
             # VIR_ERR_NO_MEMORY  =  2 (0x2)  # memory allocation failure
-            2: {'type': '', 'description': ''},
+            2: {'level': 'error', 'type': 'no-memory', 'description': 'Memory allocation failure'},
             # VIR_ERR_NO_SUPPORT  =  3 (0x3)  # no support for this function
-            3: {'type': '', 'description': ''},
+            3: {'level': 'error', 'type': 'no-support', 'description': 'No support for this function'},
             # VIR_ERR_UNKNOWN_HOST  =  4 (0x4)  # could not resolve hostname
-            4: {'type': '', 'description': ''},
+            4: {'level': 'error', 'type': 'unknown-host', 'description': 'Could not resolve hostname'},
             # VIR_ERR_NO_CONNECT  =  5 (0x5)  # can't connect to hypervisor
-            5: {'type': '', 'description': ''},
+            5: {'level': 'error', 'type': 'no-connection', 'description': 'Cannot connect to hypervisor'},
             # VIR_ERR_INVALID_CONN  =  6 (0x6)  # invalid connection object
-            6: {'type': '', 'description': ''},
+            6: {'level': 'error', 'type': 'invalid-connection', 'description': 'Invalid connection object'},
             # VIR_ERR_INVALID_DOMAIN  =  7 (0x7)  # invalid domain object
-            7: {'type': '', 'description': ''},
+            7: {'level': 'error', 'type': 'invalid-domain', 'description': 'Invalid domain object'},
             # VIR_ERR_INVALID_ARG  =  8 (0x8)  # invalid function argument
-            8: {'type': '', 'description': ''},
+            8: {'level': 'error', 'type': 'invalid-arg', 'description': 'Invalid function argument'},
             # VIR_ERR_OPERATION_FAILED  =  9 (0x9)  # a command to hypervisor failed
-            9: {'type': '', 'description': ''},
+            9: {'level': 'error', 'type': 'operation-failed', 'description': 'Command issued to hypervisor failed'},
             # VIR_ERR_GET_FAILED  =  10 (0xa)  # a HTTP GET command to failed
-            10: {'type': '', 'description': ''},
+            10: {'level': 'error', 'type': 'http-get-failed', 'description': 'HTTP GET command tfailed'},
             # VIR_ERR_POST_FAILED  =  11 (0xb)  # a HTTP POST command to failed
-            11: {'type': '', 'description': ''},
+            11: {'level': 'error', 'type': 'http-post-failed', 'description': 'HTTP POST command failed'},
             # VIR_ERR_HTTP_ERROR  =  12 (0xc)  # unexpected HTTP error codE
-            12: {'type': '', 'description': ''},
+            12: {'level': 'error', 'type': 'http-error', 'description': 'Unexpected HTTP error code'},
             # VIR_ERR_SEXPR_SERIAL  =  13 (0xd)  # failure to serialize an S-Expr
-            13: {'type': '', 'description': ''},
+            13: {'level': 'error', 'type': 's-expr-serialization', 'description': 'Failed to serialize a S-Expr'},
             # VIR_ERR_NO_XEN  =  14 (0xe)  # could not open Xen hypervisor control
-            14: {'type': '', 'description': ''},
+            14: {'level': 'error', 'type': 'no-xen', 'description': 'Cannot open Xen hypervisor control'},
             # VIR_ERR_XEN_CALL  =  15 (0xf)  # failure doing an hypervisor call
-            15: {'type': '', 'description': ''},
+            15: {'level': 'error', 'type': 'xen-call', 'description': 'Failure doing a Xen hypervisor call'},
             # VIR_ERR_OS_TYPE  =  16 (0x10)  # unknown OS type
-            16: {'type': '', 'description': ''},
+            16: {'level': 'error', 'type': 'os-type', 'description': 'Unknown OS type'},
             # VIR_ERR_NO_KERNEL  =  17 (0x11)  # missing kernel information
-            17: {'type': '', 'description': ''},
+            17: {'level': 'error', 'type': 'no-kernel', 'description': 'Missing kernel information'},
             # VIR_ERR_NO_ROOT  =  18 (0x12)  # missing root device information
-            18: {'type': '', 'description': ''},
+            18: {'level': 'error', 'type': 'no-root', 'description': 'Missing root device information'},
             # VIR_ERR_NO_SOURCE  =  19 (0x13)  # missing source device information
-            19: {'type': '', 'description': ''},
+            19: {'level': 'error', 'type': 'no-source', 'description': 'Missing source device information'},
             # VIR_ERR_NO_TARGET  =  20 (0x14)  # missing target device information
-            20: {'type': '', 'description': ''},
+            20: {'level': 'error', 'type': 'no-target', 'description': 'Missing target device information'},
             # VIR_ERR_NO_NAME  =  21 (0x15)  # missing domain name information
-            21: {'type': '', 'description': ''},
+            21: {'level': 'error', 'type': 'no-name', 'description': 'Missing domain name information'},
             # VIR_ERR_NO_OS  =  22 (0x16)  # missing domain OS information
-            22: {'type': '', 'description': ''},
+            22: {'level': 'error', 'type': 'no-os', 'description': 'Missing domain OS information'},
             # VIR_ERR_NO_DEVICE  =  23 (0x17)  # missing domain devices information
-            23: {'type': '', 'description': ''},
+            23: {'level': 'error', 'type': 'no-device', 'description': 'Missing domain device information'},
             # VIR_ERR_NO_XENSTORE  =  24 (0x18)  # could not open Xen Store control
-            24: {'type': '', 'description': ''},
+            24: {'level': 'error', 'type': 'no-xenstore', 'description': 'Cannot open Xen Store control'},
             # VIR_ERR_DRIVER_FULL  =  25 (0x19)  # too many drivers registered
-            25: {'type': '', 'description': ''},
+            25: {'level': 'error', 'type': 'driver-full', 'description': 'Too many drivers'},
             # VIR_ERR_CALL_FAILED  =  26 (0x1a)  # not supported by the drivers (DEPRECATED)
-            26: {'type': '', 'description': ''},
+            26: {'level': 'error', 'type': 'call-failed', 'description': 'Not supported by the driver'},
             # VIR_ERR_XML_ERROR  =  27 (0x1b)  # an XML description is not well formed or broken
-            27: {'type': '', 'description': ''},
+            27: {'level': 'error', 'type': 'xml-error', 'description': 'Not well-formed or broken XML description'},
             # VIR_ERR_DOM_EXIST  =  28 (0x1c)  # the domain already exist
-            28: {'type': '', 'description': ''},
+            28: {'level': 'error', 'type': 'domain-exist', 'description': 'Domain already exists'},
             # VIR_ERR_OPERATION_DENIED  =  29 (0x1d)  # operation forbidden on read-only connections
-            29: {'type': '', 'description': ''},
+            29: {'level': 'error', 'type': 'operation-denied', 'description': 'Operation not allowed on read-only connections'},
             # VIR_ERR_OPEN_FAILED  =  30 (0x1e)  # failed to open a conf file
-            30: {'type': '', 'description': ''},
+            30: {'level': 'error', 'type': 'conf-file-open-failed', 'description': 'Failed to open configuration file'},
             # VIR_ERR_READ_FAILED  =  31 (0x1f)  # failed to read a conf file
-            31: {'type': '', 'description': ''},
+            31: {'level': 'error', 'type': 'conf-file-read-failed', 'description': 'Failed to read configuration file'},
             # VIR_ERR_PARSE_FAILED  =  32 (0x20)  # failed to parse a conf file
-            32: {'type': '', 'description': ''},
+            32: {'level': 'error', 'type': 'conf-file-parse-failed', 'description': 'Failed to parse configuration file'},
             # VIR_ERR_CONF_SYNTAX  =  33 (0x21)  # failed to parse the syntax of a conf file
-            33: {'type': '', 'description': ''},
+            33: {'level': 'error', 'type': 'conf-file-syntax-error', 'description': 'Syntax error found in configuration file'},
             # VIR_ERR_WRITE_FAILED  =  34 (0x22)  # failed to write a conf file
-            34: {'type': '', 'description': ''},
+            34: {'level': 'error', 'type': 'conf-file-write-failed', 'description': 'Failed to write configuration file'},
             # VIR_ERR_XML_DETAIL  =  35 (0x23)  # detail of an XML error
-            35: {'type': '', 'description': ''},
+            35: {'level': 'error', 'type': 'xml-detail-error', 'description': 'XML detail error'},
             # VIR_ERR_INVALID_NETWORK  =  36 (0x24)  # invalid network object
-            36: {'type': '', 'description': ''},
+            36: {'level': 'error', 'type': 'invalid-network', 'description': 'Invalid network object'},
             # VIR_ERR_NETWORK_EXIST  =  37 (0x25)  # the network already exist
-            37: {'type': '', 'description': ''},
+            37: {'level': 'error', 'type': 'network-already-exist', 'description': 'Network already exist'},
             # VIR_ERR_SYSTEM_ERROR  =  38 (0x26)  # general system call failure
-            38: {'type': '', 'description': ''},
+            38: {'level': 'error', 'type': 'system-error', 'description': 'General system call failure'},
             # VIR_ERR_RPC  =  39 (0x27)  # some sort of RPC error
-            39: {'type': '', 'description': ''},
+            39: {'level': 'error', 'type': 'rpc', 'description': 'RPC call error'},
             # VIR_ERR_GNUTLS_ERROR  =  40 (0x28)  # error from a GNUTLS call
-            40: {'type': '', 'description': ''},
+            40: {'level': 'error', 'type': 'gnutls', 'description': 'GNU TLS error'},
             # VIR_WAR_NO_NETWORK  =  41 (0x29)  # failed to start network
-            41: {'type': '', 'description': ''},
+            41: {'level': 'warning', 'type': 'network', 'description': 'Failed to start network'},
             # VIR_ERR_NO_DOMAIN  =  42 (0x2a)  # domain not found or unexpectedly disappeared
-            42: {'type': '', 'description': ''},
+            42: {'level': 'error', 'type': 'no-domain', 'description': 'Domain not found or unexpectedly dissappeared'},
             # VIR_ERR_NO_NETWORK  =  43 (0x2b)  # network not found
-            43: {'type': '', 'description': ''},
+            43: {'level': 'error', 'type': 'no-network', 'description': 'Network not found'},
             # VIR_ERR_INVALID_MAC  =  44 (0x2c)  # invalid MAC address
-            44: {'type': '', 'description': ''},
+            44: {'level': 'error', 'type': 'mac', 'description': 'Invalid MAC address'},
             # VIR_ERR_AUTH_FAILED  =  45 (0x2d)  # authentication failed
-            45: {'type': '', 'description': ''},
+            45: {'level': 'error', 'type': 'authentication', 'description': 'Authentication failed'},
             # VIR_ERR_INVALID_STORAGE_POOL  =  46 (0x2e)  # invalid storage pool object
-            46: {'type': '', 'description': ''},
+            46: {'level': 'error', 'type': 'storage-pool', 'description': 'Invalid storage pool object'},
             # VIR_ERR_INVALID_STORAGE_VOL  =  47 (0x2f)  # invalid storage vol object
-            47: {'type': '', 'description': ''},
+            47: {'level': 'error', 'type': 'storage-volume', 'description': 'Invalid storage volume object'},
             # VIR_WAR_NO_STORAGE  =  48 (0x30)  # failed to start storage
-            48: {'type': '', 'description': ''},
+            48: {'level': 'warning', 'type': 'storage', 'description': 'Failed to start storage'},
             # VIR_ERR_NO_STORAGE_POOL  =  49 (0x31)  # storage pool not found
-            49: {'type': '', 'description': ''},
+            49: {'level': 'error', 'type': 'storage-pool', 'description': 'Storage pool not found'},
             # VIR_ERR_NO_STORAGE_VOL  =  50 (0x32)  # storage volume not found
-            50: {'type': '', 'description': ''},
+            50: {'level': 'error', 'type': 'storage-volume', 'description': 'Storage volume note found'},
             # VIR_WAR_NO_NODE  =  51 (0x33)  # failed to start node driver
-            51: {'type': '', 'description': ''},
+            51: {'level': 'warning', 'type': 'node', 'description': 'Failed to start node driver'},
             # VIR_ERR_INVALID_NODE_DEVICE  =  52 (0x34)  # invalid node device object
-            52: {'type': '', 'description': ''},
+            52: {'level': 'error', 'type': 'node-device', 'description': 'Invalid node device object'},
             # VIR_ERR_NO_NODE_DEVICE  =  53 (0x35)  # node device not found
-            53: {'type': '', 'description': ''},
+            53: {'level': 'error', 'type': 'node-device', 'description': 'Node device not found'},
             # VIR_ERR_NO_SECURITY_MODEL  =  54 (0x36)  # security model not found
-            54: {'type': '', 'description': ''},
+            54: {'level': 'error', 'type': 'security-model', 'description': 'Security model not found'},
             # VIR_ERR_OPERATION_INVALID  =  55 (0x37)  # operation is not applicable at this time
-            55: {'type': '', 'description': ''},
+            55: {'level': 'error', 'type': 'invalid-operation', 'description': 'Operation is not applicable at this time'},
             # VIR_WAR_NO_INTERFACE  =  56 (0x38)  # failed to start interface driver
-            56: {'type': '', 'description': ''},
+            56: {'level': 'warning', 'type': 'interface-driver', 'description': 'Failed to start interface driver'},
             # VIR_ERR_NO_INTERFACE  =  57 (0x39)  # interface driver not running
-            57: {'type': '', 'description': ''},
+            57: {'level': 'error', 'type': 'interface-driver', 'description': 'Interface driver is not running'},
             # VIR_ERR_INVALID_INTERFACE  =  58 (0x3a)  # invalid interface object
-            58: {'type': '', 'description': ''},
+            58: {'level': 'error', 'type': 'interface', 'description': 'Invalid interface object'},
             # VIR_ERR_MULTIPLE_INTERFACES  =  59 (0x3b)  # more than one matching interface found
-            59: {'type': '', 'description': ''},
+            59: {'level': 'error', 'type': 'interface', 'description': 'Multiple interfaces found'},
             # VIR_WAR_NO_NWFILTER  =  60 (0x3c)  # failed to start nwfilter driver
-            60: {'type': '', 'description': ''},
+            60: {'level': 'warning', 'type': 'nwfilter', 'description': 'Failed to start nwfilter'},
             # VIR_ERR_INVALID_NWFILTER  =  61 (0x3d)  # invalid nwfilter object
-            61: {'type': '', 'description': ''},
+            61: {'level': 'error', 'type': 'nwfilter', 'description': 'Invalid nwfilter object'},
             # VIR_ERR_NO_NWFILTER  =  62 (0x3e)  # nw filter pool not found
-            62: {'type': '', 'description': ''},
+            62: {'level': 'error', 'type': 'nwfilter', 'description': 'nwfilter pool not found'},
             # VIR_ERR_BUILD_FIREWALL  =  63 (0x3f)  # nw filter pool not found
-            63: {'type': '', 'description': ''},
+            63: {'level': 'error', 'type': 'build-firewall', 'description': 'nwfilter pool not found'},
             # VIR_WAR_NO_SECRET  =  64 (0x40)  # failed to start secret storage
-            64: {'type': '', 'description': ''},
+            64: {'level': 'warning', 'type': 'secret', 'description': 'Failed to start secret storage'},
             # VIR_ERR_INVALID_SECRET  =  65 (0x41)  # invalid secret
-            65: {'type': '', 'description': ''},
+            65: {'level': 'error', 'type': 'secret', 'description': 'Invalid secret'},
             # VIR_ERR_NO_SECRET  =  66 (0x42)  # secret not found
-            66: {'type': '', 'description': ''},
+            66: {'level': 'error', 'type': 'secret', 'description': 'Secret not found'},
             # VIR_ERR_CONFIG_UNSUPPORTED  =  67 (0x43)  # unsupported configuration construct
-            67: {'type': '', 'description': ''},
+            67: {'level': 'error', 'type': 'unsupported-conf', 'description': 'Unsupported configuration construct'},
             # VIR_ERR_OPERATION_TIMEOUT  =  68 (0x44)  # timeout occurred during operation
-            68: {'type': '', 'description': ''},
+            68: {'level': 'error', 'type': 'operation-timeout', 'description': 'Timeout occurred during operation'},
             # VIR_ERR_MIGRATE_PERSIST_FAILED  =  69 (0x45)  # a migration worked, but making the VM persist on the dest host failed
-            69: {'type': '', 'description': ''},
+            69: {'level': 'error', 'type': 'migration', 'description': 'Migration succeeded, '},
             # VIR_ERR_HOOK_SCRIPT_FAILED  =  70 (0x46)  # a synchronous hook script failed
-            70: {'type': '', 'description': ''},
+            70: {'level': 'error', 'type': 'hook-script', 'description': 'Hook script execution failed'},
             # VIR_ERR_INVALID_DOMAIN_SNAPSHOT  =  71 (0x47)  # invalid domain snapshot
-            71: {'type': '', 'description': ''},
+            71: {'level': 'error', 'type': 'domain-snapshot', 'description': 'Invalid domain snapshot'},
             # VIR_ERR_NO_DOMAIN_SNAPSHOT  =  72 (0x48)  # domain snapshot not found
-            72: {'type': '', 'description': ''},
+            72: {'level': 'error', 'type': 'domain-snapshot', 'description': 'Domain snapshot not found'},
             # VIR_ERR_INVALID_STREAM  =  73 (0x49)  # stream pointer not valid
-            73: {'type': '', 'description': ''},
+            73: {'level': 'error', 'type': 'stream', 'description': 'Stream pointer is not valid'},
             # VIR_ERR_ARGUMENT_UNSUPPORTED  =  74 (0x4a)  # valid API use but unsupported by the given driver
-            74: {'type': '', 'description': ''},
+            74: {'level': 'error', 'type': 'unsupported-argument', 'description': 'Argument unsupported for this driver'},
             # VIR_ERR_STORAGE_PROBE_FAILED  =  75 (0x4b)  # storage pool probe failed
-            75: {'type': '', 'description': ''},
+            75: {'level': 'error', 'type': 'storage-probe', 'description': 'Stoage pool probing failure'},
             # VIR_ERR_STORAGE_POOL_BUILT  =  76 (0x4c)  # storage pool already built
-            76: {'type': '', 'description': ''},
+            76: {'level': 'error', 'type': 'storage-pool', 'description': 'Storage pool already exists'},
             # VIR_ERR_SNAPSHOT_REVERT_RISKY  =  77 (0x4d)  # force was not requested for a risky domain snapshot revert
-            77: {'type': '', 'description': ''},
+            77: {'level': 'error', 'type': 'snapshot-revert', 'description': 'Force argument was not requested for risky domain snapshot revert'},
             # VIR_ERR_OPERATION_ABORTED  =  78 (0x4e)  # operation on a domain was canceled/aborted by user
-            78: {'type': '', 'description': ''},
+            78: {'level': 'error', 'type': 'operation-abort', 'description': 'Operation on a domain was cancelled/aborted by user'},
             # VIR_ERR_AUTH_CANCELLED  =  79 (0x4f)  # authentication cancelled
-            79: {'type': '', 'description': ''},
+            79: {'level': 'error', 'type': 'auth', 'description': 'Authentication cancelled'},
             # VIR_ERR_NO_DOMAIN_METADATA  =  80 (0x50)  # The metadata is not present
-            80: {'type': '', 'description': ''},
+            80: {'level': 'error', 'type': 'domain-metadata', 'description': 'Domain metadata is not present'},
             # VIR_ERR_MIGRATE_UNSAFE  =  81 (0x51)  # Migration is not safe
-            81: {'type': '', 'description': ''},
+            81: {'level': 'error', 'type': 'migration', 'description': 'Migration is not safe'},
             # VIR_ERR_OVERFLOW  =  82 (0x52)  # integer overflow
-            82: {'type': '', 'description': ''},
+            82: {'level': 'error', 'type': 'integer-overflow', 'description': 'Integer overflow was detected'},
             # VIR_ERR_BLOCK_COPY_ACTIVE  =  83 (0x53)  # action prevented by block copy job
-            83: {'type': '', 'description': ''},
+            83: {'level': 'error', 'type': 'block-copy', 'description': 'The action requested was blocked by a block copy job'},
             # VIR_ERR_OPERATION_UNSUPPORTED  =  84 (0x54)  # The requested operation is not supported
-            84: {'type': '', 'description': ''},
+            84: {'level': 'error', 'type': 'operation-unsupported', 'description': 'The requested operation is not supported'},
             # VIR_ERR_SSH  =  85 (0x55)  # error in ssh transport driver
-            85: {'type': '', 'description': ''},
+            85: {'level': 'error', 'type': 'ssh', 'description': 'Error in ssh transport driver'},
             # VIR_ERR_AGENT_UNRESPONSIVE  =  86 (0x56)  # guest agent is unresponsive, not running or not usable
-            86: {'type': '', 'description': ''},
+            86: {'level': 'error', 'type': 'guest-agent', 'description': 'Guest agent is unresponsive, not running or not usable'},
             # VIR_ERR_RESOURCE_BUSY  =  87 (0x57)  # resource is already in use
-            87: {'type': '', 'description': ''},
+            87: {'level': 'error', 'type': 'resource', 'description': 'Resource is already in use'},
             # VIR_ERR_ACCESS_DENIED  =  88 (0x58)  # operation on the object/resource was denied
-            88: {'type': '', 'description': ''},
+            88: {'level': 'error', 'type': 'access-denied', 'description': 'Operation on the object or resource was denied'},
             # VIR_ERR_DBUS_SERVICE  =  89 (0x59)  # error from a dbus service
-            89: {'type': '', 'description': ''},
+            89: {'level': 'error', 'type': 'dbus', 'description': 'Error from D-Bus service'},
             # VIR_ERR_STORAGE_VOL_EXIST  =  90 (0x5a)  # the storage vol already exists
-            90: {'type': '', 'description': ''},
+            90: {'level': 'error', 'type': 'storage-volume', 'description': 'The storage volume already exists'},
             # VIR_ERR_CPU_INCOMPATIBLE  =  91 (0x5b)  # given CPU is incompatible with host CPU
-            91: {'type': '', 'description': ''},
+            91: {'level': 'error', 'type': 'cpu', 'description': 'Provided CPU is incompatible with host CPU'},
             # VIR_ERR_XML_INVALID_SCHEMA  =  92 (0x5c)  # XML document doesn't validate against schema
-            92: {'type': '', 'description': ''},
+            92: {'level': 'error', 'type': 'xml-schema', 'description': 'XML document does not validate against schema'},
             # VIR_ERR_MIGRATE_FINISH_OK  =  93 (0x5d)  # Finish API succeeded but it is expected to return NULL
-            93: {'type': '', 'description': ''},
+            93: {'level': 'error', 'type': 'migration', 'description': 'Migration API succeeeded, but did not get the expected NULL return data'},
             # VIR_ERR_AUTH_UNAVAILABLE  =  94 (0x5e)  # authentication unavailable
-            94: {'type': '', 'description': ''},
+            94: {'level': 'error', 'type': 'authentication', 'description': 'Authentication unavailable'},
             # VIR_ERR_NO_SERVER  =  95 (0x5f)  # Server was not found
-            95: {'type': '', 'description': ''},
+            95: {'level': 'error', 'type': 'server', 'description': 'Server was not found'},
             # VIR_ERR_NO_CLIENT  =  96 (0x60)  # Client was not found
-            96: {'type': '', 'description': ''},
+            96: {'level': 'error', 'type': 'client', 'description': 'Client was not found'},
             # VIR_ERR_AGENT_UNSYNCED  =  97 (0x61)  # guest agent replies with wrong id to guest-sync command (DEPRECATED)
-            97: {'type': '', 'description': ''},
+            97: {'level': 'error', 'type': 'agent-unsynced', 'description': 'Guest agent replied with wrong ID to guest-sync command'},
             # VIR_ERR_LIBSSH  =  98 (0x62)  # error in libssh transport driver
-            98: {'type': '', 'description': ''},
+            98: {'level': 'error', 'type': 'libssh', 'description': 'Error in libssh transport driver'},
             # VIR_ERR_DEVICE_MISSING  =  99 (0x63)  # fail to find the desired device
-            99: {'type': '', 'description': ''},
+            99: {'level': 'error', 'type': 'device-missing', 'description': 'Unabled to find the desired device'},
             # VIR_ERR_INVALID_NWFILTER_BINDING  =  100 (0x64)  # invalid nwfilter binding
-            100: {'type': '', 'description': ''},
+            100: {'level': 'error', 'type': 'nwfilter-binding', 'description': 'Invalid nwfilter binding'},
             # VIR_ERR_NO_NWFILTER_BINDING  =  101 (0x65)  # no nwfilter binding
-            101: {'type': '', 'description': ''},
+            101: {'level': 'error', 'type': 'nwfilter-binding', 'description': 'No nwfilter binding'},
             # VIR_ERR_INVALID_DOMAIN_CHECKPOINT  =  102 (0x66)  # invalid domain checkpoint
-            102: {'type': '', 'description': ''},
+            102: {'level': 'error', 'type': 'domain-checkpoint', 'description': 'Invalid domain checkpoint'},
             # VIR_ERR_NO_DOMAIN_CHECKPOINT  =  103 (0x67)  # domain checkpoint not found
-            103: {'type': '', 'description': ''},
+            103: {'level': 'error', 'type': 'domain-checkpoint', 'description': 'Domain checkpoint not found'},
             # VIR_ERR_NO_DOMAIN_BACKUP  =  104 (0x68)  # domain backup job id not found
-            104: {'type': '', 'description': ''},
+            104: {'level': 'error', 'type': 'domain-backup', 'description': 'Domain backup job ID not found'},
             # VIR_ERR_INVALID_NETWORK_PORT  =  105 (0x69)  # invalid network port object
-            105: {'type': '', 'description': ''},
+            105: {'level': 'error', 'type': 'network-port', 'description': 'Invalid network port object'},
             # VIR_ERR_NETWORK_PORT_EXIST  =  106 (0x6a)  # the network port already exist
-            106: {'type': '', 'description': ''},
+            106: {'level': 'error', 'type': 'network-port', 'description': 'Network port already exist'},
             # VIR_ERR_NO_NETWORK_PORT  =  107 (0x6b)  # network port not found
-            107: {'type': '', 'description': ''},
+            107: {'level': 'error', 'type': 'network-port', 'description': 'Network port not found'},
             # VIR_ERR_NO_HOSTNAME  =  108 (0x6c)  # no domain's hostname found
-            108: {'type': '', 'description': ''},
+            108: {'level': 'error', 'type': 'domain-hostname', 'description': 'Domain hostname not found'},
             # VIR_ERR_CHECKPOINT_INCONSISTENT  =  109 (0x6d)  # checkpoint can't be used
-            109: {'type': '', 'description': ''},
+            109: {'level': 'error', 'type': 'checkpoint-inconsistent', 'description': 'Checkpoint cannot be used'},
             # VIR_ERR_MULTIPLE_DOMAINS  =  110 (0x6e)  # more than one matching domain found
-            110: {'type': '', 'description': ''},
+            110: {'level': 'error', 'type': 'domain', 'description': 'More than pne matching domain found'},
             # VIR_ERR_NUMBER_LAST  =  111 (0x6f)
-            111: {'type': '', 'description': ''},
-        }
+            111: {'level': '', 'type': '', 'description': ''},
+        }.get(self.error_code, {'error': f'{self.error_code} is not found in virErrorLevel. Please file a bug report'})
         # }
 
 
