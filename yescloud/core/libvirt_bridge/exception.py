@@ -1,4 +1,5 @@
 from libvirt import libvirtError
+from flask_restx import abort
 
 class YesCloudTranslateLibvirtErrorToUsableException(object):
     """Handle libvirt error on our own because libvirt error are just all smashed into libvirt.libvirtError"""
@@ -447,6 +448,6 @@ def handle_libvirt_exception(func):
             return func(*args, *kwargs)
         except libvirtError as e:
             real_exception = YesCloudTranslateLibvirtErrorToUsableException(e)
-            raise real_exception
+            abort(400, **{'error': vars(real_exception)})
     return wrapper
 
