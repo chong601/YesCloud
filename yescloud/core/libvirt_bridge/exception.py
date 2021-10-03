@@ -17,10 +17,16 @@ class YesCloudTranslateLibvirtErrorToUsableException(object):
 
         # int  code                 # The error code, a virErrorNumber
         self.error_code = libvirt_error_obj.get_error_code()
+        # Generate error code messages
+        self.error_code_msg = self.getVirErrorNumber()
         # int  domain               # What part of the library raised this error
         self.error_domain = libvirt_error_obj.get_error_domain()
+        # Generate error domain messages
+        self.error_domain_msg = self.getvirErrorDomain()
         # virErrorLevel  level      # how consequent is the error
         self.error_level = libvirt_error_obj.get_error_level()
+        # Generate error level message
+        self.error_level_msg = self.getVirErrorLevel()
         # char *  message           # human-readable informative error message
         self.error_message = libvirt_error_obj.get_error_message()
         # char *  str1              # extra string information
