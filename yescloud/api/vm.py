@@ -1,5 +1,4 @@
 from flask_restx import Namespace, Resource, abort
-import libvirt
 from ..core.libvirt_bridge import domain
 from ..core.libvirt_bridge import struct_n_stuff
 
@@ -42,47 +41,47 @@ class ListVirtualMachineByStatus(Resource):
         return domain.list_domains(status_flag)
 
 
-@api.route('/<int:vm_id>/detail')
+@api.route('/<int:vm_uuid>/detail')
 class ViewVirtualMachineDetail(Resource):
 
-    def get(self, vm_id):
+    def get(self, vm_uuid):
         """Show VM details based on VM ID"""
-        return domain.get_domain_detail(vm_id)
+        return domain.get_domain_detail(vm_uuid)
 
 
-@api.route('/<int:vm_id>/start')
+@api.route('/<int:vm_uuid>/start')
 class StartVirtualMachine(Resource):
 
-    def get(self, vm_id):
+    def get(self, vm_uuid):
         """Start VM based on the VM ID"""
-        return domain.create_domain(vm_id)
+        return domain.create_domain(vm_uuid)
 
 
-@api.route('/<int:vm_id>/shutdown')
+@api.route('/<int:vm_uuid>/shutdown')
 class ShutDownVirtualMachine(Resource):
 
-    def get(self, vm_id):
+    def get(self, vm_uuid):
         """Gracefully shut down a VM based on VM ID"""
-        return domain.shutdown_domain(vm_id)
+        return domain.shutdown_domain(vm_uuid)
 
 
-@api.route('/<int:vm_id>/destroy')
+@api.route('/<int:vm_uuid>/destroy')
 class DestroyVirtualMachine(Resource):
 
-    def get(self, vm_id):
+    def get(self, vm_uuid):
         """Hard power-down a VM based on VM ID"""
-        return domain.destroy_domain(vm_id)
+        return domain.destroy_domain(vm_uuid)
 
-@api.route('/<int:vm_id>/delete')
+@api.route('/<int:vm_uuid>/delete')
 class DestroyVirtualMachine(Resource):
 
-    def get(self, vm_id):
+    def get(self, vm_uuid):
         """Hard power-down a VM based on VM ID"""
-        return domain.destroy_domain(vm_id)
+        return domain.destroy_domain(vm_uuid)
 
 
-@api.route('/<int:vm_id>/clone')
+@api.route('/<int:vm_uuid>/clone')
 class CloneVirtualMachine(Resource):
 
-    def post(self, vm_id):
+    def post(self, vm_uuid):
         pass
