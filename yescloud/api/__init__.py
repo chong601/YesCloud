@@ -31,7 +31,9 @@ api = Api(alpha_blueprint, title='YesCloud REST API', version='0.0.1-alpha', des
 
 # TODO: add namespaces
 from .vm import api as vm_api
+from .network import api as net_api
 api.add_namespace(vm_api)
+api.add_namespace(net_api)
 
 # Register blueprint
 app.register_blueprint(alpha_blueprint)
