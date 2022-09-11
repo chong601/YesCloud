@@ -16,7 +16,7 @@ class Root(object):
         self._attr.update({'package_update': True})
         self._attr.update({'package_upgrade': True})
         self._attr.update({'chpasswd': {'expire': False}})
-        self._attr.update({'ssh_pwauth': True})
+        self._attr.update({'ssh_pwauth': False})
         self._attr.update({'hostname': 'ubuntu'})
         self._attr.update({'timezone': 'Etc/UTC'})
         self._attr.update({'packages': ['qemu-guest-agent', 'haveged']})
