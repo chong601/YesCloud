@@ -1,6 +1,3 @@
-from .users import User
-
-
 class NetworkConfig(object):
     """
     Base representation for the Cloud-Init object to be exported to YAML
@@ -16,7 +13,7 @@ class NetworkConfig(object):
 
     def addInterface(self, network_config: dict):
         count = len(self._attr.get('ethernets').keys())
-        self._attr.get('ethernets').update({''.join(['enp', str(count+1), 's0']): network_config})
+        self._attr.get('ethernets').update({f'enp{str(count+1)}s0': network_config})
 
     def getConfig(self):
         return self._attr
